@@ -27,7 +27,7 @@ RGB-Thermal dataset: Download from [here](http://gofile.me/4jm56/CfukComo1).
 **Move** above datasets to ./datasets folder and **rename** RGB-Thermal dataset from "dataset" to "rgb_thermal_dataset".
 
 ### 3. Build virtual environment (Using anaconda)
-First, move the code folder<br> `cd Deep_Hardware_Modality_Fusion`<br> And then, create the virtual environment<br>
+First, move to the code folder<br> `cd Deep_Hardware_Modality_Fusion`<br> And then, create the virtual environment<br>
 `conda env create -f environment.yml`
 
 ### 4. Activate virtual environment
