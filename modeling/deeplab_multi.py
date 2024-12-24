@@ -14,7 +14,7 @@ from modeling.hardware_modality_fusion_module import Exposuref
 
 class DeepLabMultiInput(nn.Module):
     def __init__(self, backbone='resnet', output_stride=16, dataset='multimodal_dataset', num_classes=1,
-                 sync_bn=True, freeze_bn=False, fusion_input_dim = [3], ratio=1, pretrained=False, 
+                 sync_bn=True, freeze_bn=False, fusion_input_dim = [3], ratio=1, use_RGFS=False, pretrained=False, 
                  use_hardware_modality_fusion=True, fusion_kernel_size=8, fused_out_dim=1):
         
         super(DeepLabMultiInput, self).__init__()
@@ -28,6 +28,7 @@ class DeepLabMultiInput(nn.Module):
 
         self.fused_out_dim = fused_out_dim
         self.use_hardware_modality_fusion = use_hardware_modality_fusion
+        self.use_RGFS = use_RGFS
         self.dataset = dataset
 
         if use_hardware_modality_fusion:
@@ -41,7 +42,7 @@ class DeepLabMultiInput(nn.Module):
             setattr(self, f'aspp{i+1}', build_aspp(backbone, output_stride, BatchNorm))
             forward_encoder_modules.extend([f'backbone{i+1}', f'aspp{i+1}'])
 
-        self.decoder = build_decoder(num_classes, backbone, BatchNorm, ratio, input_heads=len(fusion_input_dim), use_hardware_modality_fusion=self.use_hardware_modality_fusion)
+        self.decoder = build_decoder(num_classes, backbone, BatchNorm, ratio, input_heads=len(fusion_input_dim), use_RGFS=self.use_RGFS)
 
         self.forward_encoder_modules = forward_encoder_modules
 

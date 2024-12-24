@@ -47,6 +47,7 @@ Training hyperparameter explaining:<br>
 (5) use-hardware-modality-fusion: Use hardware modality fusion or not. Giving the parameter means using.<br> 
 (6) fusion-kernel-size: The kernel size of pixel block. `1` means frame coding, any value `>1` means pixel coding. **Note**: The kernel size should be dividable by the input image size, and `1` or `2` or `4` or `8` is used in our paper.<br>
 (7) fused-out-dim: The channel number of modality fused image. **Note**: The channel number should be `<=3` to fully utilize pretrained ResNet, and `1` or `3` is used in our paper.
+(8) use-RGFS: Use RGFS or not. Giving the parameter means using. Only used in reproducing MCubeSNet results.<br>
 
 Training the model:<br>
 `sh main_train.sh`<br>

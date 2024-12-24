@@ -43,6 +43,7 @@ class TesterMultimodal(object):
                         freeze_bn=args.freeze_bn,
                         fusion_input_dim=[int(x) for x in args.input_channels_list.split(',')],
                         ratio=args.ratio,
+                        use_RGFS=args.use_RGFS,
                         pretrained=args.use_pretrained_resnet,
                         use_hardware_modality_fusion=args.use_hardware_modality_fusion,
                         fusion_kernel_size=args.fusion_kernel_size,
@@ -180,6 +181,8 @@ if __name__ == "__main__":
                         help='whether to use balanced weights (default: False)')
     parser.add_argument('--ratio', type=float, default=None, metavar='N',
                         help='number of ratio in RGFSConv (default: 1)')
+    parser.add_argument('--use-RGFS', action='store_true', default=False,
+                        help='whether to use RGFS (default: False)')
     # optimizer params
     parser.add_argument('--lr', type=float, default=None, metavar='LR',
                         help='learning rate (default: auto)')
