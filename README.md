@@ -1,6 +1,4 @@
-<div align="center">
-<h style="font-size: 25px; font-weight: bold"> Deep Hardware Modality Fusion for Image Segmentation<br/>ICPR 2024<h>
-</div>
+# Deep Hardware Modality Fusion for Image Segmentation, ICPR 2024
 
 This is the official implementation of Deep Hardware Modality Fusion for Image Segmentation, ICPR 2024. For paper details, please check [here](https://link.springer.com/chapter/10.1007/978-3-031-78183-4_28).
 
