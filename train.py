@@ -43,7 +43,7 @@ class TrainerMultimodal(object):
                         ratio=args.ratio,
                         pretrained=args.use_pretrained_resnet,
                         use_hardware_modality_fusion=args.use_hardware_modality_fusion,
-                        fusion_kernal_size=args.fusion_kernal_size,
+                        fusion_kernel_size=args.fusion_kernel_size,
                         fused_out_dim=args.fused_out_dim,
                         )
 
@@ -344,8 +344,8 @@ if __name__ == "__main__":
                         help='use pretrained resnet101')
     parser.add_argument('--use-hardware-modality-fusion', action='store_true', default=False,
                         help='use hardware modality fusion to fuse modalities')
-    parser.add_argument('--fusion-kernal-size', type=int, default=8, metavar='S',
-                        help='hardware modality fusion kernal size (default: 8)')
+    parser.add_argument('--fusion-kernel-size', type=int, default=8, metavar='S',
+                        help='hardware modality fusion kernel size (default: 8)')
     parser.add_argument('--fused-out-dim', type=int, default=1, metavar='S',
                         help='hardware mdoality fusion output channel (default: 1)')
 

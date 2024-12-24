@@ -15,7 +15,7 @@ from modeling.hardware_modality_fusion_module import Exposuref
 class DeepLabMultiInput(nn.Module):
     def __init__(self, backbone='resnet', output_stride=16, dataset='multimodal_dataset', num_classes=1,
                  sync_bn=True, freeze_bn=False, fusion_input_dim = [3], ratio=1, pretrained=False, 
-                 use_hardware_modality_fusion=True, fusion_kernal_size=8, fused_out_dim=1):
+                 use_hardware_modality_fusion=True, fusion_kernel_size=8, fused_out_dim=1):
         
         super(DeepLabMultiInput, self).__init__()
         if backbone == 'drn':
@@ -31,7 +31,7 @@ class DeepLabMultiInput(nn.Module):
         self.dataset = dataset
 
         if use_hardware_modality_fusion:
-            self.exp0 = Exposuref(in_channel=sum(fusion_input_dim), out_channel=fused_out_dim, kernal_size=fusion_kernal_size, binarize_type='full')
+            self.exp0 = Exposuref(in_channel=sum(fusion_input_dim), out_channel=fused_out_dim, kernel_size=fusion_kernel_size, binarize_type='full')
             self.transforms = transforms.Compose([transforms.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))])
             fusion_input_dim = [3]
 

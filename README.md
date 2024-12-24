@@ -2,9 +2,9 @@
 <h style="font-size: 25px; font-weight: bold"> Deep Hardware Modality Fusion for Image Segmentation<br/>ICPR 2024<h>
 </div>
 
-This is the official implement of Deep Hardware Modality Fusion for Image Segmentation, ICPR 2024. For paper detail, please check [here](https://link.springer.com/chapter/10.1007/978-3-031-78183-4_28).
+This is the official implementation of Deep Hardware Modality Fusion for Image Segmentation, ICPR 2024. For paper details, please check [here](https://link.springer.com/chapter/10.1007/978-3-031-78183-4_28).
 
-If you find our work helps, please consider cite our paper:<br>
+If you find our work helps, please consider citing our paper:<br>
 ```
 @inproceedings{liu2025deep,
   title={Deep Hardware Modality Fusion for Image Segmentation},
@@ -28,11 +28,11 @@ RGB-Thermal dataset: Download from [here](http://gofile.me/4jm56/CfukComo1).
 
 **Move** above datasets to ./datasets folder and **rename** RGB-Thermal dataset from "dataset" to "rgb_thermal_dataset".
 
-### 3. Build vitual environment (Using anaconda)
-First, move the code folder<br> `cd Deep_Hardware_Modality_Fusion`<br> And then, create the vitual environment<br>
+### 3. Build virtual environment (Using anaconda)
+First, move the code folder<br> `cd Deep_Hardware_Modality_Fusion`<br> And then, create the virtual environment<br>
 `conda env create -f environment.yml`
 
-### 4. Activate vitual environment
+### 4. Activate virtual environment
 `conda activate hard_fusion`
 
 ### 5. Reconstruct polarization images for MCubeS dataset.
@@ -42,12 +42,12 @@ First, move the code folder<br> `cd Deep_Hardware_Modality_Fusion`<br> And then,
 ## Training and testing
 ### 1. Training model
 Training hyperparameter explaining:<br>
-input-channels-list: A string that list each modality channels, connected by `,`. For example, `3,1,1,1,1,1` or `3,1`<br>
+input-channels-list: A string that lists each modality channel, connected by `,`. For example, `3,1,1,1,1,1` or `3,1`<br>
 dataset: Which dataset to use. For example, `multimodal_dataset` or `rgb_thermal_dataset`<br>
-dataset-modality: A string that list each modality of the dataset, connected by `,`. For example, `rgb,aolp,dolp,nir,image_000,image_045,image_090,image_135` or `rgb,thermal`. **Note**: The order of moddalities need to match the order of the modality channels.<br>
+dataset-modality: A string that lists each modality of the dataset, connected by `,`. For example, `rgb,aolp,dolp,nir,image_000,image_045,image_090,image_135` or `rgb,thermal`. **Note**: The order of modalities needs to match the order of the modality channels.<br>
 use-modality: Which modalities to use. For example, `rgb,nir,image_000,image_045,image_090,image_135`. **Note**: Each modality of the use-modality must be contained in dataset-modality.<br>
 use-hardware-modality-fusion: Use hardware modality fusion or not. Giving the parameter means using.<br> 
-fusion-kernal-size: The kernal size of pixel block. `1` means frame coding, any value `>1` means pixel coding. **Note**: The kernal size should be dividable by the input image size, and `1` or `2` or `4` or `8` is used in our paper.<br>
+fusion-kernel-size: The kernel size of pixel block. `1` means frame coding, any value `>1` means pixel coding. **Note**: The kernel size should be dividable by the input image size, and `1` or `2` or `4` or `8` is used in our paper.<br>
 fused-out-dim: The channel number of modality fused image. **Note**: The channel number should be `<=3` to fully utilize pretrained ResNet, and `1` or `3` is used in our paper.
 
 Training the model:<br>
@@ -55,7 +55,7 @@ Training the model:<br>
 
 
 ### 2. Testing model
-Most of the hyperparameter is same with training except `pth-path`.
+Most of the hyperparameters are the same with training except `pth-path`.
 pth-path: The saved model path for testing.
 
 Testing the model:<br>
@@ -69,7 +69,7 @@ Testing the model:<br>
 ![Result on RGB-Thermal dataset](img/results_th.png)
 
 ## Pretrained model in our paper
-Here we only provide the 3c frame coding and 2x2 pixel coding pretrained model for each dataset.
+Here, we only provide the 3c frame coding and 2x2 pixel coding pretrained model for each dataset.
 
 ### 1. MCubeS dataset
 Download pretrained models from [here](https://drive.google.com/drive/u/0/folders/11PzuTl3hWkTiFoS5qU9jUoTOAX814SJH).
@@ -84,4 +84,4 @@ This code is based on [MCubeSNet](https://github.com/kyotovision-public/multimod
 2. Sun, Yuxiang, Weixun Zuo, and Ming Liu. "RTFNet: RGB-thermal fusion network for semantic segmentation of urban scenes." IEEE Robotics and Automation Letters 4.3 (2019): 2576-2583.
 
 ## Contact
-If you have any question, please contact my emial: liuyi@is.ids.osaka-u.ac.jp
+If you have any questions, please contact my email: liuyi@is.ids.osaka-u.ac.jp

@@ -16,7 +16,7 @@ CUDA_VISIBLE_DEVICES=0 python test.py \
   --use-modality rgb,nir,image_000,image_045,image_090,image_135 \
   --use-pretrained-resnet \
   --use-hardware-modality-fusion \
-  --fusion-kernal-size 1 \
+  --fusion-kernel-size 1 \
   --fused-out-dim 3 \
   --pth-path path to your model
 
@@ -39,6 +39,6 @@ CUDA_VISIBLE_DEVICES=0 python test.py \
 #   --use-modality rgb,thermal \
 #   --use-pretrained-resnet \
 #   --use-hardware-modality-fusion \
-#   --fusion-kernal-size 1 \
+#   --fusion-kernel-size 1 \
 #   --fused-out-dim 3 \
 #   --pth-path path to your model
